@@ -7,10 +7,11 @@ list_tujuan = ['', 'Surabaya', 'Jakarta', 'Bali', 'Lombok', 'Bandung']
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://pahlawanazzam:mFDM3obsLz2n@ep-rapid-violet-27339173.us-east-2.aws.neon.tech/Web")
 with conn.session as session:
-    query = text('CREATE TABLE IF NOT EXISTS RESERVATION (id serial, maskapai varchar, tujuan varchar, penumpang varchar, nomor_pesawat varchar, \
-                                                       alamat varchar, nomor_handphone varchar, tanggal_berangkat date);')
-    session.execute(query)
-
+       query = text('INSERT INTO reservation (maskapai, tujuan, penumpang, nomor_pesawat, alamat, nomor_handphone, tanggal_berangkat) \
+                           VALUES (:1, :2, :3, :4, :5, :6, :7);')
+       session.execute(query, {'1':'', '2':'', '3':'', '4':'', '5':'', '6':'', '7':None})
+       session.commit()
+  
 st.header('Sistem Pemesanan Tiket Pesawat')
 page = st.sidebar.selectbox("Pilih Menu", ["Lihat Pesanan", "Buat Pesanan", "Ubah Pesanan"])
 
