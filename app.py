@@ -5,7 +5,7 @@ list_maskapai = ['', 'Garuda Indonesia', 'Air Asia', 'Citilink', 'Emirates', 'Si
 list_tujuan = ['', 'Surabaya', 'Jakarta', 'Bali', 'Lombok', 'Bandung']
 
 conn = st.connection("postgresql", type="sql", 
-                     url="postgresql://farhanmuhammadrizqi374:Hsg3or2pLzWK@ep-young-forest-92443848.us-east-2.aws.neon.tech/Web")
+                     url="postgresql://pahlawanazzam:mFDM3obsLz2n@ep-rapid-violet-27339173.us-east-2.aws.neon.tech/Web")
 with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS RESERVATION (id serial, maskapai varchar, tujuan varchar, penumpang varchar, nomor_pesawat varchar, \
                                                        alamat varchar, nomor_handphone varchar, tanggal_berangkat date);')
